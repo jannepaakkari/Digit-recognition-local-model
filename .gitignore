@@ -1,4 +1,4 @@
-# Used https://djangowaves.com/tips-tricks/gitignore-for-a-django-project/ as a template which is further modified during project
+# Used https://djangowaves.com/tips-tricks/gitignore-for-a-django-project/ as a template
 
 # Django #
 *.log
