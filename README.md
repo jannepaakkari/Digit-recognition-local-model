@@ -5,7 +5,7 @@ AI_numbers is simple program which utilizes AI to recognize numbers which are se
 
 # Environment
 
-This is just a suggestion. You can of course whatever approach you prefer (i.e. VM).
+This is just a suggestion. You can of course use whatever approach you prefer (i.e. VM).
 
 ## Requirements (host machine)
 
@@ -24,15 +24,15 @@ py -m venv venv # create
 venv\Scripts\activate.bat # activate
 ```
 
+# App
+
+Pull/clone app with git.
+
 ## Installation of requirements (inside of virtual envionment)
 
 ```bash
 pip install -r requirements.txt
 ```
-
-# App
-
-Pull/clone app with git.
 
 ## Run project
 
@@ -40,3 +40,15 @@ Pull/clone app with git.
 cd ai_numbers_project
 python manage.py runserver
 ```
+
+## Train model
+
+Project should already include trained model, however if it does not or you want to re-train model then simply do:
+
+```bash
+python manage.py train_model
+```
+
+## Use model
+
+Send .png file of your digit to path/api/recognize/digit/

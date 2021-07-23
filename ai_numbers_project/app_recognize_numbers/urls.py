@@ -4,5 +4,6 @@ from . import views
 # router = routers.DefaultRouter()
 
 urlpatterns = [
-    path('api/test/', views.TestView.as_view(), name="TestView"),
+    path('api/recognize/digit/',
+         views.RecognizeDigit.as_view(), name="RecognizeDigit"),
 ]
