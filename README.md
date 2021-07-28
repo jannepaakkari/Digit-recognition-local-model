@@ -1,7 +1,11 @@
 # AI_numbers
 
 Tested with Windows 10 (host).
-AI_numbers is simple program which utilizes AI to recognize numbers which are sent as input.
+AI_numbers is simple program which utilizes AI/ML to recognize digits which are sent as input (28x28 and png).
+
+- Django 3.2 (python)
+- REST
+- AI/Machine learning
 
 # Environment
 
@@ -53,4 +57,4 @@ python manage.py train_model
 
 ## Use model
 
-Send .png file (28x28) of your digit to path/api/recognize/digit/
+Send .png file (28x28) of your digit to path/api/recognize/digit/ (i.e: http://localhost:8000/api/recognize/digit/)
