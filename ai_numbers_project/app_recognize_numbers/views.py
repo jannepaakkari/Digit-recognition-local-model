@@ -23,6 +23,6 @@ class RecognizeDigit(APIView):
                 img = np.invert(np.array([img]))
                 prediction = model.predict(img)
                 most_likely_result = np.argmax(prediction)
-                return Response(str(most_likely_result), status=200)
+                return Response(most_likely_result, status=200)
         except Exception as e:
             return Response({str(e)}, status=400)

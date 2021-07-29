@@ -55,7 +55,7 @@ python manage.py runserver
 Project should already include trained model (digits.model), however if it does not or you want to re-train model then simply do:
 
 ```bash
-python manage.py train_model # you probably do not need run this command
+python manage.py train_model # you probably do not need to run this command
 ```
 
 ## Use model
