@@ -58,6 +58,12 @@ Project should already include trained model (digits.model), however if it does 
 python manage.py train_model # you probably do not need to run this command
 ```
 
-## Use model
+## Use/test model
 
-Send .png file (28x28) of your digit to path/api/recognize/digit/ (i.e: http://localhost:8000/api/recognize/digit/). App includes example_digits which should be detected correctly but you can of course create your own digits too with paint. Key which you should use with the image is "image".
+POST .png file (28x28) of your digit to path/api/recognize/digit/ (i.e: http://localhost:8000/api/recognize/digit/). You can of course copy digit(s) from /example_digits folder if you do not wish to make your own digits, but you want to test that setup works as intended. "Key" which you should use with the digit is "image".
+
+Alternatively you can replace digits in /example_digits folder with your own digits (make sure they are .png, 28x28, and image name is same than in image which you replace) and then run:
+
+```bash
+python manage.py test # Runs unit tests in tests.py
+```
