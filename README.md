@@ -10,7 +10,7 @@ AI_numbers is simple program which utilizes AI/ML to recognize digits which are 
 
 # Environment
 
-This is just a suggestion. You can of course use whatever approach you prefer (i.e. VM).
+This is just a suggestion. You can of course use whatever approach you prefer, I intentionally made this project not too opionated about the environment. As long as you have installed the requirements you should be able to run the project.
 
 ## Requirements (host machine)
 
@@ -35,10 +35,10 @@ Pull/clone app with git or simply just download it.
 Set secret key (random numbers: https://docs.djangoproject.com/en/3.2/ref/settings/#std:setting-SECRET_KEY) in ai_numbers_project/settings.py.
 Note that this project tries to import secret_key from ai_numbers/environment.py but that file is not included in git so either delete import or make your own environment file which includes the secret key (secret_key="insert_your_secret_key").
 
-## Installation of requirements (inside of virtual environment)
+## Installation of requirements (inside of virtual environment and from project root)
 
 ```bash
-pip install -r requirements.txt # needs only to be done once, make sure you have activated your virtual environment and are inside of it. Run from project root.
+pip install -r requirements.txt # needs only to be done once, make sure you have activated your virtual environment and are inside of it.
 ```
 
 ## Run project
@@ -67,3 +67,5 @@ Alternatively you can replace digits in /example_digits folder with your own dig
 ```bash
 python manage.py test # Runs unit tests in tests.py Run from /ai_numbers_project
 ```
+
+Result should be "ok".

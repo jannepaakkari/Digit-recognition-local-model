@@ -1,6 +1,6 @@
 Django >=3.2,<3.3
 djangorestframework >=3.12,<3.13
-numpy ~=1.19.2
-tensorflow >=2.5,<2.6
+numpy~=1.21
+tensorflow >=2.8,<2.9
 opencv-python >=4.5,<4.6
-Pillow >=8.3,<8.4
+Pillow >=9,<9.1
