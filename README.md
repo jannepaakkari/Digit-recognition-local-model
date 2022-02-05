@@ -33,12 +33,12 @@ venv\Scripts\activate.bat # activate virtual environment
 
 Pull/clone app with git or simply just download it.
 Set secret key (random numbers: https://docs.djangoproject.com/en/3.2/ref/settings/#std:setting-SECRET_KEY) in ai_numbers_project/settings.py.
-Note that this project tries to import secret_key from ai_numbers/environment.py but that file is not included in git so either delete import or make your own environment file which includes the secret key (secret_key="insert_random_letters").
+Note that this project tries to import secret_key from ai_numbers/environment.py but that file is not included in git so either delete import or make your own environment file which includes the secret key (secret_key="insert_your_secret_key").
 
 ## Installation of requirements (inside of virtual environment)
 
 ```bash
-pip install -r requirements.txt # needs only to be done once, make sure you have activated your virtual environment and are inside of it
+pip install -r requirements.txt # needs only to be done once, make sure you have activated your virtual environment and are inside of it. Run from project root.
 ```
 
 ## Run project
@@ -65,5 +65,5 @@ POST .png file (28x28) of your digit to path/api/recognize/digit/ (i.e: http://l
 Alternatively you can replace digits in /example_digits folder with your own digits (make sure they are .png, 28x28, and image name is same than in image which you replace) and then run:
 
 ```bash
-python manage.py test # Runs unit tests in tests.py
+python manage.py test # Runs unit tests in tests.py Run from /ai_numbers_project
 ```
