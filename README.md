@@ -44,8 +44,7 @@ pip install -r requirements.txt # needs only to be done once, make sure you have
 ## Run project
 
 ```bash
-cd ai_
-s_project
+cd ai_numbers_project
 python manage.py makemigrations # needs only to be done once or if you do modifications to the db models
 python manage.py migrate # needs only to be done once or if you do modifications to the db models
 python manage.py runserver
