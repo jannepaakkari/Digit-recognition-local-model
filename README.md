@@ -32,7 +32,7 @@ venv\Scripts\activate.bat # activate virtual environment
 # App
 
 Pull/clone app with git or simply just download it.
-Set secret key (random numbers: https://docs.djangoproject.com/en/3.2/ref/settings/#std:setting-SECRET_KEY) in ai_numbers_project/settings.py.
+Set secret key (random string: https://docs.djangoproject.com/en/3.2/ref/settings/#std:setting-SECRET_KEY) in ai_numbers_project/settings.py.
 Note that this project tries to import secret_key from ai_numbers/environment.py but that file is not included in git so either delete import or make your own environment file which includes the secret key (secret_key="insert_your_secret_key").
 
 ## Installation of requirements (inside of virtual environment and from project root)
@@ -44,7 +44,8 @@ pip install -r requirements.txt # needs only to be done once, make sure you have
 ## Run project
 
 ```bash
-cd ai_numbers_project
+cd ai_
+s_project
 python manage.py makemigrations # needs only to be done once or if you do modifications to the db models
 python manage.py migrate # needs only to be done once or if you do modifications to the db models
 python manage.py runserver
