@@ -1,10 +1,7 @@
-
-from django.core.management.base import BaseCommand, CommandError
 import sys
+from django.core.management.base import BaseCommand, CommandError
 import tensorflow as tf
 from tensorflow import keras
-from tensorflow.keras import layers
-
 
 class Command(BaseCommand):
     help = "Trains model from scratch"
@@ -30,7 +27,8 @@ class Command(BaseCommand):
 
             # Set optimizer and loss functions
             model.compile(
-                optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
+                optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy']
+            )
 
             # Train model
             model.fit(x_train, y_train, epochs=5)
@@ -40,8 +38,8 @@ class Command(BaseCommand):
             print(f'loss: {evaluation[0]}', file=sys.stderr)
             print(f'accuracy: {evaluation[1]}', file=sys.stderr)
 
-            # Save model
-            model.save('./digits.model')
+            # Save model in .keras format
+            model.save('./digits.keras')
 
-        except Exception:
-            raise CommandError('Could not train model. Something went wrong.')
+        except Exception as e:
+            raise CommandError(f'Could not train model. Something went wrong: {str(e)}')
