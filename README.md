@@ -1,62 +1,45 @@
 # AI_numbers
 
-Tested with Windows 10 (host). With Linux there may be slight differences with the commands (i.e. you may need to use pip3 instead pip and python3 instead python)
-AI_numbers is simple program which utilizes AI/ML to recognize digits which are sent as input (28x28 and png).
+AI_numbers is a digit recognition application originally developed in 2021 using Django 3 and updated to Django 5.1 in 2024. The application utilizes AI/ML to recognize handwritten digits from 28x28 pixel PNG images. Though a relatively simple project, it demonstrates the integration of several technologies.
 
-- Django 3.2 (python)
-- REST
-- AI/Machine learning
+Technologies:
+- Django 3.2 (Python) and Django 5.1 (updated)
+- REST API
+- Django commands
+- AI/ML for digit recognition with a locally trained model (digits.keras)
 - Virtual environment
 
 # Environment
 
-This is just a suggestion. You can of course use whatever approach you prefer, I intentionally made this project not too opionated about the environment. As long as you have installed the requirements you should be able to run the project.
+This is a suggested environment setup, but you're free to use any approach you prefer. The project has been designed to be flexible and not overly opinionated about the environment. As long as you have installed the required dependencies, you should be able to run the project without issues.
 
-## Requirements (host machine)
+Note: You may want to unfreeze the requirements (currently frozen as of 23.11.2024) if you'd like to update to the latest versions of the dependencies.
 
-virtualenv==20.0.21 (tested with, probably works with other modern versions too)
+# App
 
-So install virtualenv to your host machine (depending on your approach)
+You can clone or download the app using Git.
+After setting up the project, make sure to define a secret key in settings.py. The project currently tries to import it from environment import secret_key, but the secret_key is not included with the project. Without setting a secret key, the project will not start.
+
+## Host Machine
+
+Go to the project
 
 ```bash
 pip install virtualenv # if you already have virtualenv installed, you can skip this most likely
-```
-
-## Create and activate virtual environment
-
-```bash
 py -m venv venv # create virtual environment called venv / needs only to be done once
 venv\Scripts\activate.bat # activate virtual environment
 ```
 
-# App
-
-Pull/clone app with git or simply just download it.
-Set secret key (random string: https://docs.djangoproject.com/en/3.2/ref/settings/#std:setting-SECRET_KEY) in ai_numbers_project/settings.py.
-<b>Note that this project tries to import secret_key from ai_numbers/environment.py but that file is not included in git so either delete import or make your own environment file which includes the secret key (secret_key="insert_your_secret_key").</b>
-
-## Installation of requirements (inside of virtual environment and from project root)
+## Installation of requirements & run project (inside of virtual environment)
 
 ```bash
 pip install -r requirements.txt # needs only to be done once, make sure you have activated your virtual environment and are inside of it.
-```
-
-## Run project
-
-```bash
 cd ai_numbers_project
 python manage.py makemigrations # needs only to be done once or if you do modifications to the db models
 python manage.py migrate # needs only to be done once or if you do modifications to the db models
 python manage.py runserver
 ```
 
-## Train model
-
-Project should already include trained model (digits.model), however if it does not or you want to re-train model then simply do:
-
-```bash
-python manage.py train_model # you probably do not need to run this command
-```
 
 ## Use/test model
 
@@ -69,3 +52,13 @@ python manage.py test # Runs unit tests in tests.py Run from /ai_numbers_project
 ```
 
 Result should be "ok".
+
+
+# Train model
+
+The project should already include a pre-trained model (digits.keras), so you typically don't need to retrain it. However, if you want to re-train the model for any reason, you can use the following command:
+
+```bash
+python manage.py train_model # you probably do not need to run this command
+```
+
