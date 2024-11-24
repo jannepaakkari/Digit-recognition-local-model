@@ -1,6 +1,6 @@
-# AI_numbers
+# Digit-recognition-local-model
 
-AI_numbers is a digit recognition application originally developed in 2021 using Django 3 and updated to Django 5.1 in 2024. The application utilizes AI/ML to recognize handwritten digits from 28x28 pixel PNG images. Though a relatively simple project, it demonstrates the integration of several technologies.
+Digit-recognition-local-model is a digit recognition application originally developed in 2021 using Django 3 and updated to Django 5.1 in 2024. The application utilizes AI/ML to recognize handwritten digits from 28x28 pixel PNG images. Though a relatively simple project, it demonstrates the integration of several technologies.
 
 Technologies:
 - Django 3.2 (Python) and Django 5.1 (updated)
