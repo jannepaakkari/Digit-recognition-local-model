@@ -7,6 +7,7 @@ Technologies:
 - REST API
 - Django commands
 - AI/ML for digit recognition with a locally trained model (digits.keras)
+- Unit tests
 - Virtual environment
 
 # Environment
