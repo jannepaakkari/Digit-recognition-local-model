@@ -1,11 +1,9 @@
 from rest_framework.response import Response
 from rest_framework.views import APIView
-import numpy as np
-import tensorflow as tf
-from tensorflow import keras
-from PIL import Image
 from . import serializers
-import os
+from PIL import Image as PILImage
+import numpy as np
+import keras
 
 class RecognizeDigit(APIView):
     def post(self, request):
@@ -15,25 +13,23 @@ class RecognizeDigit(APIView):
                 # Load model
                 model = keras.models.load_model("./digits.keras", compile=True)
 
-                # Save image if it is valid
-                serializer.save()
+                # Process image (without saving it)
+                image = serializer.validated_data['image']
+                
+                # Open the image in memory (without saving it to disk)
+                img = PILImage.open(image)
 
-                # Read image and predict result
-                image_path = serializer.data['image'].strip("/")
-                image = Image.open(image_path).convert("L")
+                # Convert to grayscale and scale to 28x28 (actually resizing is no-op as we require 28x28, but this is alternative approach)
+                img = img.convert('L')
+                #img = img.resize((28, 28))
+                
+                # Reshape image for the model 
+                img_array = np.array(img) # to numpy array
+                img_array = img_array / 255.0  # Normalize the image
+                img_array = np.expand_dims(img_array, axis=-1)  # Add channel dimension
+                img_array = np.expand_dims(img_array, axis=0)  # Add batch dimension
 
-                # Resize the image to 28x28
-                image = image.resize((28, 28))
-                img_array = np.array(image)
-
-                # Normalize the image
-                img_array = img_array / 255.0
-
-                # Reshape image for the model (add a batch dimension)
-                img_array = np.expand_dims(img_array, axis=-1)
-                img_array = np.expand_dims(img_array, axis=0)
-
-                # Predict result
+                # Make prediction
                 prediction = model.predict(img_array)
                 most_likely_result = np.argmax(prediction)
 
